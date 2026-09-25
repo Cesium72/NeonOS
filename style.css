@@ -1,0 +1,160 @@
+:root {
+    --accent:hsl(115, 100%, 50%);
+}
+
+body {
+    margin:0;
+    padding:0;
+    background-color:black;
+    overflow:hidden;
+    color:white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#splash {
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    height:100vh;
+}
+
+#splash > div {
+    width:400px;
+    text-align:center;
+}
+
+h1 {
+    font-size:50px;
+}
+
+.glow {
+    border:1px solid white;
+    border-radius:8px;
+    box-shadow:0 0 8px 3px var(--accent);
+    margin:none;
+    padding:none;
+    background-color:black;
+}
+
+@keyframes load {
+    0%, 12.5% {
+        margin-left:0px;
+        width:0px;
+    }
+    37.5% {
+        margin-left:75px;
+        width:150px;
+    }
+    62.5% {
+        margin-left:225px;
+        width:75px;
+    }
+    87.5%, 100% {
+        margin-left:300px;
+        width:0px;
+    }
+}
+
+#loadcont {
+    background-color:#444;
+    border-radius:10px;
+    height:20px;
+    width:300px;
+    margin-left:50px;
+    padding:none;
+}
+
+#loadbar {
+    background-color:var(--accent);
+    border-radius:10px;
+    height:20px;
+    animation:load infinite 2s linear;
+}
+
+#bg {
+    display:grid;
+    grid-template-columns:repeat(12, auto);
+    position:fixed;
+    width:100vw;
+    height:100vh;
+    z-index:-1;
+}
+
+#bg div {
+    background-color:black;
+    margin:2px;
+    height:8.333vw;
+}
+
+@keyframes subbg {
+    from {
+        top: -200vw;
+    }
+    to {
+        top:100vw;
+    }
+}
+
+#subbg {
+    animation:subbg 5s linear infinite;
+    position:absolute;
+    z-index: -2;
+    width:100vw;
+    height:200vw;
+    background-image:linear-gradient(-15deg, black, var(--accent), black);
+}
+
+
+
+#main > * {
+    position:absolute;
+}
+
+#bar {
+    width:fit-content;
+    height:fit-content;
+    bottom:10px;
+    transform:translate(-50%, 0%);
+    left:50vw;
+    display:grid;
+    grid-template-columns:repeat(6, auto);
+    padding:5px;
+}
+
+#bar div:nth-child(n + 2) {
+    border-left:1px solid var(--accent);
+}
+
+#bar span {
+    display:none;
+    transform:translate(-50%, -50%);
+    left:50%;
+    top:-20px;
+    background-color:var(--accent);
+    color:black;
+    border-radius:5px;
+    padding:4px;
+}
+
+#bar div {
+    padding:10px;
+}
+
+#bar div:hover span {
+    position:absolute;
+    display:block;
+}
+
+#bar button {
+    border:none;
+    outline:none;
+    background:none;
+    cursor:pointer;
+    height:40px;
+    width:40px;
+}
+
+#bar svg {
+    width:100%;
+    height:100%;
+}
