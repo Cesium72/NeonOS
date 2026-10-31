@@ -4,6 +4,38 @@ let activeNote = "";
 let apps = {};
 let dragging = 0;
 let barVis = true;
+let score = 0;
+let best = 0;
+let dir = 1;
+let goal = 30;
+let player = 60;
+let rate = 20;
+
+function gameTick() {
+    if(player >= 95 || player <= 0) dir = -dir;
+    player += dir;
+    document.getElementById("player").style.left = player + "%";
+    setTimeout(gameTick, rate);
+};
+
+gameTick();
+
+document.addEventListener("keydown", e => {
+    if(e.key != " ") return;
+    if(player > goal && (player + 5) < (goal + 20)) {
+        score++;
+        best = Math.max(score, best);
+        rate = Math.max(rate - 1, 2);
+    } else {
+        score = 0;
+        rate = 20;
+    }
+    goal = 80 * Math.random();
+    document.getElementById("goal").style.left = goal + "%";
+    document.getElementById("score").textContent = score;
+    document.getElementById("best").textContent = best;
+});
+
 let notes = {
     "Hello": "Hello, world!",
     "Cake Recipe": `
