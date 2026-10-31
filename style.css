@@ -19,6 +19,38 @@ header {
     width:100vw;
 }
 
+.window .header button {
+    width:20px;
+    height:20px;
+    clear:none;
+    float:left;
+    border-top-left-radius:4px;
+    background-color:black;
+    margin:0;
+    text-align:center;
+    border:none;
+    outline:none;
+    color:var(--accent);
+}
+
+#bartog, input {
+    background-color:black;
+    border:1px solid var(--accent);
+    color:var(--accent);
+    outline:none;
+}
+
+.dragbar {
+    width:calc(100% - 20px);
+    background-color:var(--accent);
+    height:20px;
+    clear:none;
+    float:right;
+    border:none;
+    margin:0;
+    outline:none;
+}
+
 #splash {
     display:flex;
     align-items:center;
@@ -160,6 +192,9 @@ h1 {
     cursor:pointer;
     height:40px;
     width:40px;
+    cursor:pointer;
+    z-index:999;
+    position:relative;
 }
 
 #bar svg {
@@ -168,8 +203,8 @@ h1 {
 }
 
 .window {
-    width:800px;
-    height:600px;
+    width:600px;
+    height:400px;
     resize:both;
     position:absolute;
     top:20vh;
@@ -182,4 +217,38 @@ h1 {
     background-color:black;
     border:1px solid white;
     color:var(--accent);
+    border-top-left-radius:8px;
+    border-top-right-radius:8px;
+    padding:0;
+    border:none;
+    border-bottom:1px solid var(--accent);
+}
+
+#edit button, #edit textarea {
+    color:white;
+    border:1px solid var(--accent);
+    background-color:black;
+    resize:none;
+    margin-left:5%;
+}
+
+textarea {
+    width:90%;
+    height:300px;
+    resize:none;
+}
+
+#open button {
+    border:1px solid limegreen;
+    outline:none;
+    background-color:black;
+    color:limegreen;
+}
+
+#open button, #open li {
+    cursor:pointer;
+}
+
+#open li:nth-child(n + 2) {
+    border-top:1px solid lime;
 }
