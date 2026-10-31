@@ -31,7 +31,7 @@ for(var i = 0; i < 240; i++) {
 setTimeout(() => {
     document.getElementById("splash").style.display = "none";
     document.getElementById("main").style.display = "block";
-}, 300);
+}, 3000);
 
 setInterval(() => {
     let now = new Date();
@@ -43,6 +43,9 @@ function launch(app) {
     surface(app);
     nextWin++;
     nextZ++;
+    if(app == "video") {
+        document.querySelector("video").play();
+    }
 }
 
 function startDrag(app) {

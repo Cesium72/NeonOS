@@ -34,7 +34,7 @@
             <label for="scheme">Main Color (0-360): </label>
             <input type="number"min="0"max="360"id="scheme"value="115"oninput="scheme()">
         </div>
-        <div class="window"id="text"style="z-index:2;left:10px;top:10px;"onmousedown="surface('text')">
+        <div class="window"id="text"style="z-index:2;left:10px;top:10px;display:none;"onmousedown="surface('text')">
         <div class="header"onmousedown="startDrag('text');"><button onclick="Close('text');">×</button><div class="dragbar"></div></div>
             <h2>Notes</h2>
             <div id="open">
@@ -49,9 +49,15 @@
                 <textarea></textarea>
             </div>
         </div>
+        <div class="window" id="video"style="z-index:2;left:10px;top:10px;display:none;"onmousedown="surface('video')">
+            <div class="header"onmousedown="startDrag('video');"><button onclick="alert('Nope!');">×</button><div class="dragbar"></div></div>
+            <video style="width:100%;height:100%;" loop>
+                <source src="./video.mp4" type="video/mp4">
+            </video>
+        </div>
         <div id="bar" class="glow">
             <div>
-                <span>>Videos</span>
+                <span>Streaming</span>
                 <button onclick="launch('video')"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#ffffff" d="M6 6.741c0-1.544 1.674-2.505 3.008-1.728l9.015 5.26c1.323.771 1.323 2.683 0 3.455l-9.015 5.258C7.674 19.764 6 18.803 6 17.26zM17.015 12L8 6.741V17.26z"/></svg></button>
             </div>
             <div>
